@@ -11,4 +11,5 @@
 - Visual Studio Code
 
 ### run projet :
+    npm install
     npm run dev 
