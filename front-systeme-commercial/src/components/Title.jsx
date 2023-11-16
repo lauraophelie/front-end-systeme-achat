@@ -1,8 +1,8 @@
 function Title(props) {
-    const { text } = props;
+    const { text, className } = props;
 
     return (
-        <h1>
+        <h1 className={className}>
             {text}
         </h1>
     )
