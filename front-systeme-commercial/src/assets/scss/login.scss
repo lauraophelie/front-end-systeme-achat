@@ -1,0 +1,24 @@
+.login {
+    margin-top: -30%;
+
+    &__title {
+        color: rgb(12, 12, 12);
+        font-size: 35px;
+    }
+
+    &__input {
+        width: 275px;
+    }
+
+    &__box-one, &__box-three, &__box-four {
+        margin-top: 15px;
+    }
+
+    &__button {
+        height: 50px;
+        text-transform: capitalize;
+        font-size: 15px;
+        width: 275px;
+        box-shadow: none;
+    }
+}
