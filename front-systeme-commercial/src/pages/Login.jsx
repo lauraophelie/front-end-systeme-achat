@@ -6,6 +6,7 @@ import Bouton from "../components/Bouton";
 import { useState } from "react";
 import axios from "axios";
 import AlertSection from "../components/AlertSection";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const loginBtn = {
@@ -26,21 +27,12 @@ function Login() {
         });
     };
 
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
-    const handleLogin = async (e) => {
+    const handleLogin = (e) => {
         e.preventDefault();
-        try {
-            const response = await axios.post('http://localhost:8080/api/login', loginForm);
-            if(response.data.error) {
-                console.log(error)
-                setError(response.data.error)
-            } else if(response.data.data) {
-                sessionStorage.setItem('userData', JSON.stringify(response.data.data));
-            }
-        } catch(error) {
-            console.error(error);
-        }
+        navigate("/besoin");
     };
 
     return (
