@@ -4,6 +4,8 @@ import TextInput from "../components/TextInput";
 import "../assets/scss/login.scss";
 import Bouton from "../components/Bouton";
 import { useState } from "react";
+import axios from "axios";
+import AlertSection from "../components/AlertSection";
 
 function Login() {
     const loginBtn = {
@@ -24,13 +26,31 @@ function Login() {
         });
     };
 
-    const handleLogin = (e) => {
+    const [error, setError] = useState(null)
+
+    const handleLogin = async (e) => {
         e.preventDefault();
-        console.log(loginForm);
+        try {
+            const response = await axios.post('http://localhost:8080/api/login', loginForm);
+            if(response.data.error) {
+                console.log(error)
+                setError(response.data.error)
+            } else if(response.data.data) {
+                sessionStorage.setItem('userData', JSON.stringify(response.data.data));
+            }
+        } catch(error) {
+            console.error(error);
+        }
     };
 
     return (
         <Container fixed className="login">
+            { error && (
+                <div className="login__box-error">
+                    <AlertSection severity="error" message={error} />
+                </div>
+            )}
+
             <div className="login__box-one">
                 <Title text="Log In" className="login__title"/>
             </div>
