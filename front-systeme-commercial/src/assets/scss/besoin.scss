@@ -1,5 +1,5 @@
 .def-besoin {
-    margin-top: -65%;
+    margin-top: -35%;
 
     &__title {
         color: rgb(14, 14, 14);
@@ -30,6 +30,15 @@
 
         &--articles {
             margin-top: 25px;
+        }
+
+        &--submit-besoin {
+            margin-top: 25px;
+
+            &__button {
+                height: 50px;
+                width: 200px;
+            }
         }
     }
 }

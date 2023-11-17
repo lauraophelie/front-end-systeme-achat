@@ -1,7 +1,8 @@
-import { AppBar, Box, Button, CssBaseline, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from "@mui/material";
+import { AppBar, Box, Button, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from "@mui/material";
 import "../assets/scss/header.scss";
 import { useState } from "react";
 import { Menu } from "@mui/icons-material";
+import { Outlet } from "react-router-dom";
 
 const navItems = ["Home", "Besoin"]
 const drawerWidth = 500;
@@ -69,6 +70,7 @@ function Header(props) {
                 </nav>
             <Box component="main" sx={{ p: 3 }}>
                 <Toolbar />
+                <Outlet />
             </Box>
         </Box>
     );

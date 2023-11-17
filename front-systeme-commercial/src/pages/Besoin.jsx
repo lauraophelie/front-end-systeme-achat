@@ -1,10 +1,9 @@
-import Header from "../components/Header";
-
 import "../assets/scss/besoin.scss";
 import { Typography } from "@mui/material";
 import DateInput from "../components/DateInput";
 import CheckBoxesListe from "../components/CheckBoxesListe";
 import Bouton from "../components/Bouton";
+import Header from "../components/Header";
 
 const data = [
     {title: "Stylo"},
@@ -14,6 +13,12 @@ const data = [
 ]
 
 function Besoin() {
+    const btn = {
+        variant: "contained",
+        text: "Suivant",
+        className: "def-besoin__form--submit-besoin__button"
+    };
+
     return (
         <>
             <Header />
@@ -33,8 +38,8 @@ function Besoin() {
                     <div className="def-besoin__form--articles">
                         <CheckBoxesListe data={data} placeHolder="Article" label="Articles" limitTags={3} className="def-besoin__form--input"/>
                     </div>
-                    <div className="def-besoin__form--sumbit-besoin">
-                        <Bouton />
+                    <div className="def-besoin__form--submit-besoin">
+                        <Bouton variant={btn.variant} text={btn.text} className={btn.className} />
                     </div>
                 </div>
             </div>
