@@ -36,8 +36,8 @@ function Header(props) {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <AppBar component="nav" className="header__navigation">
-                <Toolbar>
+            <AppBar component="nav">
+                <Toolbar className="header__navigation">
                     <IconButton color="inherit" aria-label="open drawer" edge="start" onClick={handleDrawerToggle} sx={{ mr: 2, display: { sm: 'none' } }}> 
                         <Menu />
                     </IconButton>
