@@ -4,6 +4,7 @@ import "../assets/scss/besoin.scss";
 import { Typography } from "@mui/material";
 import DateInput from "../components/DateInput";
 import CheckBoxesListe from "../components/CheckBoxesListe";
+import Bouton from "../components/Bouton";
 
 const data = [
     {title: "Stylo"},
@@ -31,6 +32,9 @@ function Besoin() {
                     </div>
                     <div className="def-besoin__form--articles">
                         <CheckBoxesListe data={data} placeHolder="Article" label="Articles" limitTags={3} className="def-besoin__form--input"/>
+                    </div>
+                    <div className="def-besoin__form--sumbit-besoin">
+                        <Bouton />
                     </div>
                 </div>
             </div>
