@@ -1,28 +1,34 @@
 import { CheckBox, CheckBoxOutlineBlank } from "@mui/icons-material";
 import { Autocomplete, Checkbox, TextField } from "@mui/material";
 
-const icon = <CheckBoxOutlineBlank fontSize="small" />;
-const checkedIcon = <CheckBox fontSize="small" />;
-
 function CheckBoxesListe(props) {
-    const { data, placeholder, limitTags, label, className } = props;
+    const { data, placeholder, limitTags, label, className, onChange } = props;
+
+    const icon = <CheckBoxOutlineBlank fontSize="small" />;
+    const checkedIcon = <CheckBox fontSize="small" />;
+
+    const handleChange = (_, selectedItems) => {
+        onChange(selectedItems);
+    };
 
     return (
-        <Autocomplete 
+        <Autocomplete
             className={className}
             multiple
             options={data}
             disableCloseOnSelect
             limitTags={limitTags}
             getOptionLabel={(option) => option.title}
+            isOptionEqualToValue={(option, value) => option.title === value.title}
+            onChange={handleChange}
             renderOption={(props, option, { selected }) => (
                 <li {...props}>
-                <Checkbox
-                    icon={icon}
-                    checkedIcon={checkedIcon}
-                    style={{ marginRight: 8 }}
-                    checked={selected}
-                />
+                    <Checkbox
+                        icon={icon}
+                        checkedIcon={checkedIcon}
+                        style={{ marginRight: 8 }}
+                        checked={selected}
+                    />
                     {option.title}
                 </li>
             )}
@@ -30,7 +36,7 @@ function CheckBoxesListe(props) {
                 <TextField {...params} label={label} placeholder={placeholder} />
             )}
         />
-    )
+    );
 }
 
 export default CheckBoxesListe;
