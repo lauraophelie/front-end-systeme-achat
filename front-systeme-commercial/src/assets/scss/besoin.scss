@@ -1,0 +1,41 @@
+.def-besoin {
+    margin-top: -35%;
+
+    &__title {
+        color: rgb(14, 14, 14);
+        font-weight: lighter;
+        margin-top: -15%;
+        font-size: 35px;
+    }
+
+    &__form {
+        margin-top: 25px;
+
+        &--input {
+            &__two {
+                margin-top: 25px;
+            }
+
+            &__input {
+                width: 350px;
+            }
+        }
+
+        &--articles {
+            margin-top: 25px;
+        }
+
+        &--submit-besoin {
+            margin-top: 25px;
+
+            &__button {
+                height: 50px;
+                width: 200px;
+            }
+        }
+    }
+}
+
+#date_input {
+    margin-left: 25px;
+}
