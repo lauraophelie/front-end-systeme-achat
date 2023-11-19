@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { AppBar, Box, Button, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Toolbar, Typography } from "@mui/material";
 import "../assets/scss/header.scss";
 import { useState } from "react";

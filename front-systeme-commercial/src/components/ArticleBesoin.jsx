@@ -1,7 +1,7 @@
 import { Box, InputAdornment, TextField } from "@mui/material";
 
 function ArticleBesoins(props) {
-    const { data, className, inputClassName } = props;
+    const { data, className, inputClassName, quantites, onQuantityChange } = props;
 
     return (
         <div className={className} >
@@ -13,6 +13,8 @@ function ArticleBesoins(props) {
                         InputProps={{
                             startAdornment: <InputAdornment position="start"> Quantité </InputAdornment>
                         }}
+                        value={quantites[item.id] || ''}
+                        onChange={(e) => onQuantityChange(item.id, e.target.value)}
                     />
                 </Box>
             ))}
