@@ -39,3 +39,30 @@
 #date_input {
     margin-left: 25px;
 }
+
+.def-articles {
+    &__title {
+        color: rgb(29, 29, 29);
+    }
+
+    &__articles {
+        margin-top: 35px;
+        width: 500px;
+        margin-left: 15%;
+
+        &--items {
+            margin-top: 25px;
+        }
+    }
+
+    &__submit {
+        margin-top: 25px;
+        margin-left: 25px;
+
+        &--button {
+            margin-top: 25px;
+            width: 371px;
+            margin-left: 35px;
+        }
+    }
+}
