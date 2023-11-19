@@ -4,12 +4,13 @@ import DateInput from "../components/DateInput";
 import CheckBoxesListe from "../components/CheckBoxesListe";
 import Bouton from "../components/Bouton";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const data = [
-    { title: "Stylo" },
-    { title: "Ordinateur" },
-    { title: "Crayon" },
-    { title: "Disque dur" }
+    { id: "ART001", title: "Stylo", quantite: 0 },
+    { id: "ART002", title: "Ordinateur", quantite: 0 },
+    { id: "ART003", title: "Crayon", quantite: 0 },
+    { id: "ART004", title: "Disque dur", quantite: 0 }
 ];
 
 function Besoin() {
@@ -33,11 +34,20 @@ function Besoin() {
         }));
     };
 
+    const navigate = useNavigate();
+
     const createBesoin = (e) => {
         e.preventDefault();
         console.log(JSON.stringify(formValues, null, 2));
+
+        const formattedFormValues = {
+            ...formValues,
+            date: formValues.date.format('YYYY-MM-DD'),
+            dateLimite: formValues.dateLimite.format('YYYY-MM-DD')
+        };
+
+        navigate("/header/besoin_articles", { state : { formData: formattedFormValues } });
     };
-    
 
     return (
         <>

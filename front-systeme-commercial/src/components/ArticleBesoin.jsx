@@ -1,4 +1,8 @@
-function ArticleBesoins() {
+
+
+function ArticleBesoins(props) {
+    const { data } = props;
+    
     return (
         <>
         </>
