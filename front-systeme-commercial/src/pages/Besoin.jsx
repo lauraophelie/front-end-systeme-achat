@@ -5,6 +5,7 @@ import CheckBoxesListe from "../components/CheckBoxesListe";
 import Bouton from "../components/Bouton";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const data = [
     { id: "ART001", title: "Stylo", quantite: 0 },
@@ -35,8 +36,9 @@ function Besoin() {
     };
 
     const navigate = useNavigate();
+    const [error, setError] = useState(null);
 
-    const createBesoin = (e) => {
+    const createBesoin = async (e) => {
         e.preventDefault();
         console.log(JSON.stringify(formValues, null, 2));
 
@@ -46,6 +48,27 @@ function Besoin() {
             dateLimite: formValues.dateLimite.format('YYYY-MM-DD')
         };
 
+        /*
+        const besoin = {
+            serviceConcerne: "",
+            dateBesoin: formValues.date.format('YYYY-MM-DD'),
+            dateLimite: formValues.dateLimite.format('YYYY-MM-DD'),
+            etat: 0
+        }
+
+        try {
+            const response = await axios.post("", besoin);
+
+            if(response.data.error) {
+                console.log(error)
+                setError(response.data.error)
+            } else if(response.data.data) {
+                navigate("/header/besoin_articles", { state : { formData: formattedFormValues } });
+            }
+        } catch (e) {
+            console.error(e);
+        }
+        */
         navigate("/header/besoin_articles", { state : { formData: formattedFormValues } });
     };
 

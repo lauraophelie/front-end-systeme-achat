@@ -43,6 +43,7 @@
 .def-articles {
     &__title {
         color: rgb(29, 29, 29);
+        font-size: 35px;
     }
 
     &__articles {
@@ -67,3 +68,15 @@
         }
     }
 }
+
+.liste-besoins, .fiche-besoin {
+    &__title {
+        color: black;
+        font-size: 35px;
+    }
+
+    &__table {
+        margin-top: 45px;
+    }
+}
+

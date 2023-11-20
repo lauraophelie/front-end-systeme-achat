@@ -8,6 +8,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import Header from './components/Header';
 import DefArticleBesoin from './pages/DefArticleBesoin';
+import ListeBesoins from './pages/ListeBesoins';
+import FicheBesoin from './components/FicheBesoin';
 
 function App({ children }) {
 
@@ -18,8 +20,10 @@ function App({ children }) {
         <Route path="/" element={<Login />} />
         <Route path="header" element={<Header />}>
           <Route path="besoin" element={<Besoin />} />
+          <Route path="liste_besoins" element={<ListeBesoins />} />
           <Route path="besoin_articles" element={<DefArticleBesoin />} />
         </Route>
+        <Route path="details_besoin" element={<FicheBesoin />} />
       </Routes>
       </BrowserRouter>
       
