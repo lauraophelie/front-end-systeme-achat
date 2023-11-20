@@ -39,3 +39,59 @@
 #date_input {
     margin-left: 25px;
 }
+
+.def-articles {
+    &__title {
+        color: rgb(29, 29, 29);
+        font-size: 35px;
+    }
+
+    &__articles {
+        margin-top: 35px;
+        width: 500px;
+        margin-left: 15%;
+
+        &--items {
+            margin-top: 25px;
+        }
+    }
+
+    &__submit {
+        margin-top: 25px;
+        margin-left: 25px;
+
+        &--button {
+            margin-top: 25px;
+            width: 200px;
+            margin-left: 35px;
+            height: 45px;
+        }
+    }
+}
+
+.liste-besoins, .fiche-besoin {
+    &__title {
+        color: black;
+        font-size: 35px;
+    }
+
+    &__add-besoin {
+        margin-top: 25px;
+        width: 250px;
+
+        &--button {
+            width: 225px;
+        }
+    }
+
+    &__table {
+        margin-top: 45px;
+    }
+}
+
+.besoins-global {
+    &__data {
+        margin-top: 45px;
+    }
+}
+
