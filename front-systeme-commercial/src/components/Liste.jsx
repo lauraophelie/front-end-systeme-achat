@@ -88,7 +88,7 @@ TablePaginationActions.propTypes = {
 };
 
 function Liste(props) {
-  const { keys, rows } = props;
+  const { keys, rows, detailsRow } = props;
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
@@ -129,7 +129,9 @@ function Liste(props) {
                               {key}
                           </StyledTableCell>
                       ))}
-                      <StyledTableCell align="center"> Détails </StyledTableCell>
+                      {detailsRow && (
+                        <StyledTableCell align="center"> Détails </StyledTableCell>
+                      )}
                   </TableRow>
               </TableHead>
 
@@ -145,9 +147,11 @@ function Liste(props) {
                               </StyledTableCell>
                           ))}
 
-                          <StyledTableCell align="center">
-                              {renderDetailsButton(row)}
-                          </StyledTableCell>
+                          {detailsRow && (
+                              <StyledTableCell align="center">
+                                {renderDetailsButton(row)}
+                              </StyledTableCell>
+                          )}
                       </StyledTableRow>
                   ))}
                   {emptyRows > 0 && (

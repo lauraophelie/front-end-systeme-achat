@@ -1,6 +1,8 @@
 import { Typography } from "@mui/material";
 import Liste from "../components/Liste";
 import { useEffect, useState } from 'react';
+import Bouton from "../components/Bouton";
+import { useNavigate } from "react-router-dom";
 
 function createData(data) {
     const result = {};
@@ -38,14 +40,26 @@ function ListeBesoins() {
         setKeys(header);
     }, []);
 
+    const navigate = useNavigate();
+
     return (
         <div className="liste-besoins">
             <Typography variant="h4" className="liste-besoins__title">
                 Liste des besoins
             </Typography>
 
+            <div className="liste-besoins__add-besoin">
+                <Bouton
+                    text="Définir besoin"
+                    variant="outlined"
+                    className="liste-besoins__add-besoin--button"
+                    onClick={() => navigate("/header/besoin")}
+                />
+            </div>
+
             <div className="liste-besoins__table">
                 <Liste
+                    detailsRow={true}
                     keys={keys}
                     rows={besoins.map(row => ({
                         ...row,

@@ -75,7 +75,22 @@
         font-size: 35px;
     }
 
+    &__add-besoin {
+        margin-top: 25px;
+        width: 250px;
+
+        &--button {
+            width: 225px;
+        }
+    }
+
     &__table {
+        margin-top: 45px;
+    }
+}
+
+.besoins-global {
+    &__data {
         margin-top: 45px;
     }
 }
