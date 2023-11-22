@@ -3,18 +3,44 @@ import { Typography } from "@mui/material";
 import DateInput from "../components/DateInput";
 import CheckBoxesListe from "../components/CheckBoxesListe";
 import Bouton from "../components/Bouton";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const data = [
+/*const data = [
     { id: "ART001", title: "Stylo", quantite: 0 },
     { id: "ART002", title: "Ordinateur", quantite: 0 },
     { id: "ART003", title: "Crayon", quantite: 0 },
     { id: "ART004", title: "Disque dur", quantite: 0 }
-];
+];*/
 
 function Besoin() {
+    const [articles, setArticles] = useState([]);
+    const [error, setError] = useState(null);
+
+    useEffect(() => {
+        const fetchArticle = async () => {
+            try {
+                const response = await axios.get("http://localhost:8080/api/articles");
+    
+                if(response.data.error) {
+                    setError(response.data.error);
+                } else if(response.data.data) {
+                    const liste = response.data.data.map((item) => ({
+                        id: item.id,
+                        title: item.nomArticle,
+                        quantite: 0,
+                        categorie: item.categorie.nomCategorie
+                    }));
+                    setArticles(liste);
+                }
+            } catch(error) {
+                console.error(error);
+            }
+        }
+        fetchArticle();
+    })
+
     const btn = {
         variant: "contained",
         text: "Suivant",
@@ -36,7 +62,6 @@ function Besoin() {
     };
 
     const navigate = useNavigate();
-    const [error, setError] = useState(null);
 
     const createBesoin = async (e) => {
         e.preventDefault();
@@ -48,16 +73,19 @@ function Besoin() {
             dateLimite: formValues.dateLimite.format('YYYY-MM-DD')
         };
 
-        /*
+        const session = sessionStorage.getItem("userData");
+        const service = JSON.parse(session).service;
+        const idService = service.id;
+
         const besoin = {
-            serviceConcerne: "",
+            idService: idService,
             dateBesoin: formValues.date.format('YYYY-MM-DD'),
             dateLimite: formValues.dateLimite.format('YYYY-MM-DD'),
             etat: 0
         }
 
         try {
-            const response = await axios.post("", besoin);
+            const response = await axios.post("http://localhost:8080/api/besoin/create", besoin);
 
             if(response.data.error) {
                 console.log(error)
@@ -68,8 +96,6 @@ function Besoin() {
         } catch (e) {
             console.error(e);
         }
-        */
-        navigate("/header/besoin_articles", { state : { formData: formattedFormValues } });
     };
 
     return (
@@ -98,7 +124,7 @@ function Besoin() {
 
                     <div className="def-besoin__form--articles">
                         <CheckBoxesListe 
-                            data={data} 
+                            data={articles} 
                             limitTags={2} 
                             label="Articles"
                             onChange={(selectedItems) => handleChange("articles", selectedItems)}

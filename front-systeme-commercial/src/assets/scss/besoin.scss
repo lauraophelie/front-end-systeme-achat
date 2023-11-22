@@ -89,6 +89,12 @@
     }
 }
 
+.liste-besoins {
+    &__error {
+        margin-top: 25px;
+    }
+}
+
 .besoins-global {
     &__data {
         margin-top: 45px;
