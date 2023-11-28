@@ -87,7 +87,8 @@ function ListeBesoins() {
                         keys={keys}
                         rows={besoins.map(row => ({
                             ...row,
-                            etat: row.etat === 0 ? "En attente" : (row.etat === -1 ? "Refusé" : (row.etat === 1 ? "Validé" : "Inconnu"))
+                            etat: row.etat === 0 ? "En attente" : (row.etat === -1 ? "Refusé" : (row.etat === 1 ? "Validé" : "Inconnu")),
+                            etatEmail: row.etatEmail === 0 ? "En attente" : (row.etatEmail === -1 ? "Refusé" : (row.etatEmail === 1 ? "Validé" : "Inconnu"))
                         }))}
                     />
                 </div>

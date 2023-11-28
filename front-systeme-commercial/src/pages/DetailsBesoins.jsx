@@ -54,6 +54,10 @@ function DetailsBesoins(props) {
         }
     };
 
+    const refuserBesoin = async (e) => {
+        e.preventDefault();
+    }
+
     return (
         <TableContainer component={Paper}>
             <Table sx={{width: 875, height: 325}}>
@@ -109,6 +113,7 @@ function DetailsBesoins(props) {
                             <Bouton 
                                 text="Refuser" 
                                 variant="outlined"
+                                onClick={refuserBesoin}
                             />
                         </TableCell>
                         <TableCell align="center">

@@ -88,7 +88,7 @@ TablePaginationActions.propTypes = {
 };
 
 function Liste(props) {
-  const { keys, rows, detailsRow } = props;
+  const { keys, rows, detailsRow, width } = props;
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
@@ -121,7 +121,7 @@ function Liste(props) {
 
   return (
       <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 1250 }} aria-label="customized table">
+          <Table sx={{ minWidth: 1200 }} aria-label="customized table">
               <TableHead>
                   <TableRow>
                       {keys.map((key) => (

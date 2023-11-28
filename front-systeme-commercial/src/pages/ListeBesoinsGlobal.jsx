@@ -1,28 +1,36 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TableRow, Typography } from "@mui/material";
 import Bouton from "../components/Bouton";
 import { Send } from "@mui/icons-material";
+import { useState } from "react";
 
 function ListeBesoinsGlobal() {
+    const [error, setError] = useState(null);
+    const [besoinsGlobal, setBesoinsGlobal] = useState([]);
+    const [keys, setKeys] = useState([]);
+
+    /*useEffect(() => {
+        const fetchData = 
+    })*/
 
     const data = [
         {
             debut: "2023-11-12", 
             fin: "2023-11-15",
             articles: [
-                { id: "ART001", title: "Stylo", quantite: 50 },
-                { id: "ART002", title: "Ordinateur", quantite: 50 },
-                { id: "ART003", title: "Crayon", quantite: 50 },
-                { id: "ART004", title: "Disque dur", quantite: 50 }
+                { service: "", id: "ART001", title: "Stylo", quantite: 50 },
+                { service: "", id: "ART002", title: "Ordinateur", quantite: 50 },
+                { service: "", id: "ART003", title: "Crayon", quantite: 50 },
+                { service: "", id: "ART004", title: "Disque dur", quantite: 50 }
             ]
         },
         {
             debut: "2023-11-12", 
             fin: "2023-11-15",
             articles: [
-                { id: "ART001", title: "Stylo", quantite: 50 },
-                { id: "ART002", title: "Ordinateur", quantite: 50 },
-                { id: "ART003", title: "Crayon", quantite: 50 },
-                { id: "ART004", title: "Disque dur", quantite: 50 }
+                { service: "", id: "ART001", title: "Stylo", quantite: 50 },
+                { service: "", id: "ART002", title: "Ordinateur", quantite: 50 },
+                { service: "", id: "ART003", title: "Crayon", quantite: 50 },
+                { service: "", id: "ART004", title: "Disque dur", quantite: 50 }
             ]
         }
     ]
@@ -51,6 +59,7 @@ function ListeBesoinsGlobal() {
                                 </TableRow>
 
                                 <TableRow>
+                                    <TableCell align="center"> Service </TableCell>
                                     <TableCell align="center"> Article </TableCell>
                                     <TableCell align="center"> Quantité </TableCell>
                                 </TableRow>
@@ -59,6 +68,7 @@ function ListeBesoinsGlobal() {
                             {item.articles.map((article) => (
                                 <TableBody key={article.id}>
                                     <TableRow>
+                                        <TableCell> {article.service} </TableCell>
                                         <TableCell> {article.title} </TableCell>
                                         <TableCell align="center"> {article.quantite} </TableCell>
                                     </TableRow>
