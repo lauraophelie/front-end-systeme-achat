@@ -11,6 +11,7 @@ import DefArticleBesoin from './pages/DefArticleBesoin';
 import ListeBesoins from './pages/ListeBesoins';
 import FicheBesoin from './components/FicheBesoin';
 import ListeBesoinsGlobal from './pages/ListeBesoinsGlobal';
+import SaisieProforma from './pages/SaisieProforma';
 
 function App({ children }) {
 
@@ -24,6 +25,7 @@ function App({ children }) {
           <Route path="liste_besoins" element={<ListeBesoins />} />
           <Route path="besoin_articles" element={<DefArticleBesoin />} />
           <Route path="besoins_global" element={<ListeBesoinsGlobal />} />
+          <Route path="saisie_proforma" element={<SaisieProforma /> } />
         </Route>
         <Route path="details_besoin" element={<FicheBesoin />} />
       </Routes>

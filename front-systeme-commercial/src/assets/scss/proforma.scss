@@ -1,0 +1,47 @@
+.proforma {
+    &__title {
+        margin-top: -5%;
+    }
+
+    &__input {
+        height: 75px;
+        margin-top: 45px;
+
+        &__one, &__two {
+            display: flex;
+        }
+
+        &__one {
+            margin-top: 35px;
+        }
+        &__two {
+            margin-top: 25px;
+        }
+    }
+
+    &__add {
+        height: 55px;
+    }
+
+    &__content {
+        border: 1px solid lightgray;
+        height: fit-content;
+        display: flex;
+        margin-top: 25px;
+        height: 65px;
+
+        &__box {
+            width: 25%;
+            font-weight: lighter;
+        }
+    }
+
+    &__submit {
+        margin-top: 50px;
+
+        &--button {
+            width: 275px;
+            height: 45px;
+        }
+    }
+}

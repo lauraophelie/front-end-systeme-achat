@@ -73,6 +73,7 @@
     &__title {
         color: black;
         font-size: 35px;
+        margin-top: 25px;
     }
 
     &__add-besoin {
@@ -86,6 +87,12 @@
 
     &__table {
         margin-top: 45px;
+    }
+}
+
+.liste-besoins {
+    &__error {
+        margin-top: 25px;
     }
 }
 

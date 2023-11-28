@@ -3,6 +3,8 @@ import Liste from "../components/Liste";
 import { useEffect, useState } from 'react';
 import Bouton from "../components/Bouton";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import AlertSection from "../components/AlertSection";
 
 function createData(data) {
     const result = {};
@@ -16,28 +18,43 @@ function createData(data) {
 }
 
 function ListeBesoins() {
+    const [service, setService] = useState(null);
     const [besoins, setBesoins] = useState([]);
     const [keys, setKeys] = useState([]);
+    const [error, setError] = useState(null);
 
     useEffect(() => {
-        const liste = [
-            { id: "BES1", dateBesoins: "2023-11-10", dateLimite: "2023-11-25", etat: 0},
-            { id: "BES2", dateBesoins: "2023-11-10", dateLimite: "2023-11-25", etat: 0},
-            { id: "BES3", dateBesoins: "2023-11-10", dateLimite: "2023-11-25", etat: 0},
-            { id: "BES5", dateBesoins: "2023-11-10", dateLimite: "2023-11-25", etat: 0},
-            { id: "BES6", dateBesoins: "2023-11-10", dateLimite: "2023-11-25", etat: 0},
-            { id: "BES7", dateBesoins: "2023-11-10", dateLimite: "2023-11-25", etat: 0},
-            { id: "BES8", dateBesoins: "2023-11-10", dateLimite: "2023-11-25", etat: 0}
-        ];
+        const s = sessionStorage.getItem('userData');
+        const dataService = JSON.parse(s).service;
 
-        const data = createData(Object.keys(liste[0]));
-        const header = [];
+        setService(dataService);
 
-        for (var key in data) {
-            header.push(data[key]);
-        }
-        setBesoins(liste);
-        setKeys(header);
+        const idService = dataService.id;
+
+        const fetchData = async () => {
+            try {
+                const urlRequest = "http://localhost:8080/api/besoin/" + idService;
+                const response = await axios.get(urlRequest);
+
+                if(response.data.error) {
+                    setError(response.data.error);
+                } else if(response.data.data) {
+                    const liste = response.data.data.map(({listeArticles, ...rest}) => rest);
+
+                    const data = createData(Object.keys(liste[0]));
+                    const header = [];
+
+                    for (var key in data) {
+                        header.push(data[key]);
+                    }
+                    setBesoins(liste);
+                    setKeys(header);
+                }
+            } catch(error) {
+                console.error(error);
+            }
+        };
+        fetchData();
     }, []);
 
     const navigate = useNavigate();
@@ -57,16 +74,25 @@ function ListeBesoins() {
                 />
             </div>
 
-            <div className="liste-besoins__table">
-                <Liste
-                    detailsRow={true}
-                    keys={keys}
-                    rows={besoins.map(row => ({
-                        ...row,
-                        etat: row.etat === 0 ? "En attente" : (row.etat === -1 ? "Refusé" : (row.etat === 1 ? "Validé" : "Inconnu"))
-                    }))}
-                />
-            </div>
+            {error && (
+                <div className="liste-besoins__error">
+                    <AlertSection severity="info" message={error}/>
+                </div>
+            )}
+
+            {!error && (
+                <div className="liste-besoins__table">
+                    <Liste
+                        detailsRow={true}
+                        keys={keys}
+                        rows={besoins.map(row => ({
+                            ...row,
+                            etat: row.etat === 0 ? "En attente" : (row.etat === -1 ? "Refusé" : (row.etat === 1 ? "Validé" : "Inconnu")),
+                            etatEmail: row.etatEmail === 0 ? "En attente" : (row.etatEmail === -1 ? "Refusé" : (row.etatEmail === 1 ? "Validé" : "Inconnu"))
+                        }))}
+                    />
+                </div>
+            )}
         </div>
     );
 }

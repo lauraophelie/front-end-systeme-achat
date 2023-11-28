@@ -1,10 +1,12 @@
 import { Typography } from "@mui/material";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 import "../assets/scss/besoin.scss";
 import ArticleBesoins from "../components/ArticleBesoin";
 import Bouton from "../components/Bouton";
 import { useState } from "react";
+import { json } from "react-router-dom";
+import axios from "axios";
 
 function DefArticleBesoin() {
     const location = useLocation();
@@ -33,10 +35,34 @@ function DefArticleBesoin() {
         quantite: quantites[article.id] || 0
     }));
 
-    const setArticles = (e) => {
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
+
+    const setArticles = async (e) => {
         e.preventDefault();
         console.log("Quantite actuelles : ", quantites);
         console.log("Articles : ", updatedArticles);
+
+        const keysArticles = Object.keys(quantites);
+        const quantitesData = Object.values(quantites).map(Number);
+
+        const articlesBesoin = {
+            idArticles: keysArticles,
+            qte: quantitesData
+        }
+
+        try {
+            const response = await axios.post("http://localhost:8080/api/besoin/createWithArticles", articlesBesoin);
+
+            if(response.data.error) {
+                console.log(error);
+                setError(error);
+            } else if(response.data.data) {
+                navigate("/header/liste_besoins");
+            }
+        } catch(error) {
+            console.error(error);
+        }
     }
 
     return (
