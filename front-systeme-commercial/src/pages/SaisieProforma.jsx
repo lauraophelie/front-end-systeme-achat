@@ -9,13 +9,15 @@ import axios from "axios";
 
 function SaisieProforma() {
     const fournisseur = [
-        { id: "FRN1", nom: "Super U"}
+        { id: "FRN1", nom: "Super U"},
+        { id: "FRN2", nom: "Jumbo Score"}
     ];
     const article = [
-        { id: "ART1", nom: "Stylo"}
+        { id: "ART1", nom: "Stylo"},
+        { id: "ART2", nom: "Crayon"}
     ];
 
-    const [data, setData] = useState([]);
+    /*const [data, setData] = useState([]);
 
     const [proforma, setProforma] = useState({
         fournisseur: "",
@@ -25,22 +27,22 @@ function SaisieProforma() {
     });
 
     const handleChange = (name, event) => {
-        console.log(`Setting ${name} to:`, event.target.value);
-        setProforma(prevState => ({
+        //console.log(`Setting ${name} to:`, event.target.value);
+        /*setProforma(prevState => ({
             ...prevState,
             [name]: event.target.value
         }));
-    }; 
+    };*/
 
-    const handleClick = (e) => {
+    /*const handleClick = (e) => {
         e.preventDefault();
         setData(prevData => [...prevData, proforma]);
-    }  
+    }*/
     
     const validerProforma = async (e) => {
         e.preventDefault();
 
-        let groupedData = data.reduce((acc, item) => {
+        /*let groupedData = data.reduce((acc, item) => {
             const { fournisseur, article, quantite, prixUnitaire } = item;
             if (!acc[fournisseur]) {
                 acc[fournisseur] = [];
@@ -57,10 +59,10 @@ function SaisieProforma() {
             idArticle: Object.values(groupedData).flatMap(item => item.map(i => i.idArticle)),
             quantites: Object.values(groupedData).flatMap(item => item.map(i => i.quantites)),
             prixU: Object.values(groupedData).flatMap(item => item.map(i => i.prixU)),
-            idFournisseurs: Object.keys(groupedData)[0],
+            idFournisseurs: Object.keys(groupedData),
             date: Date.now()
         }
-        console.log(dataProforma);
+        console.log(JSON.stringify(dataProforma));*/
 
         /*try {
             const response = await axios.post("http://localhost:8080/api/proforma/new", dataProforma);
@@ -76,67 +78,31 @@ function SaisieProforma() {
                 Saisie de proforma
             </Typography>
 
-            <div className="proforma__input">
+            <div className="proforma__input__one">
                 <DropDown
                     data={fournisseur} 
                     width="200px"
                     label="Fournisseur"
-                    onChange={(value) => handleChange("fournisseur", value)}
                 />
 
                 <DropDown
                     data={article} 
                     width="200px"
                     label="Article"
-                    onChange={(value) => handleChange("article", value)}
                 />
+            </div>
 
+            <div className="proforma__input__two">
                 <TextInput 
                     type="text" 
                     label="Quantité" 
-                    onChange={(value) => handleChange("quantite", value)}
                 />
                 
                 <TextInput 
                     type="text" 
                     label="Prix Unitaire"
-                    onChange={(value) => handleChange("prixUnitaire", value)}
-                />
-
-                <Bouton 
-                    text="Ajouter" 
-                    variant="outlined"
-                    className="proforma__add"
-                    onClick={handleClick}
                 />
             </div>
-
-            {data && data.map((item) => {
-                return (
-                    <div className="proforma__content">
-                        <div className="proforma__content__box">
-                            <Typography variant="subtitle1" sx={{ paddingTop: "15px"}}>
-                                {fournisseur.find(fournisseur => fournisseur.id === item.fournisseur).nom}
-                            </Typography>
-                        </div>
-                        <div className="proforma__content__box">
-                            <Typography variant="subtitle1" sx={{ paddingTop: "15px"}}>
-                                {article.find(article => article.id === item.article).nom}
-                            </Typography>
-                        </div>
-                        <div className="proforma__content__box">
-                            <Typography variant="subtitle1" sx={{ paddingTop: "15px"}}>
-                                {item.quantite}
-                            </Typography>
-                        </div>
-                        <div className="proforma__content__box">
-                            <Typography variant="subtitle1" sx={{ paddingTop: "15px"}}>
-                                {item.prixUnitaire}
-                            </Typography>
-                        </div>
-                    </div>
-                )
-            })}
 
             <div className="proforma__submit">
                 <Bouton

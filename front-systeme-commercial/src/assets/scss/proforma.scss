@@ -5,8 +5,18 @@
 
     &__input {
         height: 75px;
-        display: flex;
         margin-top: 45px;
+
+        &__one, &__two {
+            display: flex;
+        }
+
+        &__one {
+            margin-top: 35px;
+        }
+        &__two {
+            margin-top: 25px;
+        }
     }
 
     &__add {
