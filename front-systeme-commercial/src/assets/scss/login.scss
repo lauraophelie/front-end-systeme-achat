@@ -1,24 +1,32 @@
+@import "./variable.scss";
+
 .login {
-    margin-top: -30%;
+    //border: 1px solid lightgray;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 485px;
+    display: inline-grid;
+    align-content: space-evenly;
+    justify-content: center;
+    gap: 0px;
+    box-shadow: 5px 5px 12px 0px #ececec;
+    background-color: rgb(249, 249, 249);
 
     &__title {
-        color: rgb(12, 12, 12);
+        text-align: center;
         font-size: 35px;
     }
 
     &__input {
         width: 275px;
+        margin-bottom: 10px;
     }
 
-    &__box-one, &__box-three, &__box-four {
-        margin-top: 15px;
-    }
-
-    &__button {
+    &__submit {
         height: 50px;
-        text-transform: capitalize;
-        font-size: 15px;
-        width: 275px;
-        box-shadow: none;
+        background-color: darkcyan;
     }
 }

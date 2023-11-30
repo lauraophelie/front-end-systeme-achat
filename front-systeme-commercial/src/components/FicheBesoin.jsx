@@ -1,27 +1,21 @@
 import { useLocation } from "react-router-dom";
-import Header from "./Header";
+import "../assets/scss/besoin.scss";
 import DetailsBesoins from "../pages/DetailsBesoins";
-import { Typography } from "@mui/material";
 
 function FicheBesoin() {
     const location = useLocation();
     const id = location.state.id;
 
-    console.log(id);
-
     return (
-        <>
-            <Header />
-            <div className="fiche-besoin">
-                <Typography variant="h4" className="fiche-besoin__title">
-                    Fiche de Besoin
-                </Typography>
-                
-                <div className="fiche-besoin__table">
-                    <DetailsBesoins idBesoin={id} />
-                </div>
+        <div className="fiche-besoin">
+            <h2 className="fiche-besoin__title">
+                Fiche besoin
+            </h2>
+
+            <div className="fiche-besoin__content">
+                <DetailsBesoins idBesoin={id} />
             </div>
-        </>
+        </div>
     )
 }
 

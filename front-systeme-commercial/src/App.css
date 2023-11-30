@@ -1,12 +1,14 @@
 body {
-  background-color: whitesmoke;
+  background-color: rgb(249, 249, 249);
+  color: black;
+  display: block;
 }
 
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  width: 100%;
+  /*margin: 0;
   padding: 2rem;
-  text-align: center;
+  text-align: center;*/
 }
 
 .logo {
@@ -37,10 +39,11 @@ body {
   }
 }
 
-.card {
+/*.card {
   padding: 2em;
-}
+}*/
 
 .read-the-docs {
   color: #888;
 }
+
