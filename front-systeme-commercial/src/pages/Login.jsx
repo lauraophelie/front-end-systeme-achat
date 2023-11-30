@@ -1,20 +1,11 @@
-import { Container } from "@mui/material";
-import Title from "../components/Title";
-import TextInput from "../components/TextInput";
+import { useState } from "react";
 import "../assets/scss/login.scss";
 import Bouton from "../components/Bouton";
-import { useState } from "react";
-import axios from "axios";
-import AlertSection from "../components/AlertSection";
+import TextInput from "../components/TextInput";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Login() {
-    const loginBtn = {
-        variant: "contained",
-        text: "Se connecter",
-        className: "login__button"
-    };
-
     const [loginForm, setLoginForm] = useState({
         email: "",
         password: ""
@@ -48,33 +39,38 @@ function Login() {
     };
 
     return (
-        <Container fixed className="login">
-            { error && (
-                <div className="login__box-error">
-                    <AlertSection severity="error" message={error} />
-                </div>
-            )}
+        <>
+            <div>
 
-            <div className="login__box-one">
-                <Title text="Log In" className="login__title"/>
             </div>
+            <div className="login">
+                <h1 className="login__title"> Login </h1>
+                <TextInput
+                    type="email"
+                    label="Email"
+                    required={true}
+                    className="login__input"
+                    value={loginForm.email}
+                    onChange={handleChange} name="email"
+                />
+                <TextInput
+                    type="password"
+                    label="Mot de passe"
+                    required={true}
+                    className="login__input"
+                    value={loginForm.password}
+                    onChange={handleChange} name="password"
+                />
+                <Bouton
+                    text="Se connecter"
+                    variant="contained"
+                    className="login__submit"
+                    bgColor="darkcyan"onClick={handleLogin}
 
-            <div className="login__box-two">
-                <TextInput type="email" label="Email" className="login__input" required={true} value={loginForm.email} onChange={handleChange} name="email" />
+                />
             </div>
-
-            <div className="login__box-three">
-                <TextInput type="password" label="Password" className="login__input" required={true} value={loginForm.password} onChange={handleChange} name="password" />
-            </div>
-
-            <div className="login__box-four">
-                <Bouton variant={loginBtn.variant} text={loginBtn.text} className={loginBtn.className} onClick={handleLogin}/>
-            </div>
-        </Container>
-    );
+        </>
+    )
 }
 
 export default Login;
-
-            
-            

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css'
 
@@ -11,7 +12,9 @@ import DefArticleBesoin from './pages/DefArticleBesoin';
 import ListeBesoins from './pages/ListeBesoins';
 import FicheBesoin from './components/FicheBesoin';
 import ListeBesoinsGlobal from './pages/ListeBesoinsGlobal';
-import SaisieProforma from './pages/SaisieProforma';
+import SaisieProforma from './pages/achat/SaisieProforma';
+import MoinsDisant from './pages/achat/MoinsDisant';
+import GenerateBonCommande from './pages/achat/GenerateBonCommande';
 
 function App({ children }) {
 
@@ -24,10 +27,13 @@ function App({ children }) {
           <Route path="besoin" element={<Besoin />} />
           <Route path="liste_besoins" element={<ListeBesoins />} />
           <Route path="besoin_articles" element={<DefArticleBesoin />} />
-          <Route path="besoins_global" element={<ListeBesoinsGlobal />} />
-          <Route path="saisie_proforma" element={<SaisieProforma /> } />
+          <Route path="details_besoin" element={<FicheBesoin />} />
+
+          <Route path="achat/bons_commande" element={<GenerateBonCommande />} />
+          <Route path="achat/saisie_proforma" element={<SaisieProforma />}/>
+          <Route path="achat/besoins_global" element={<ListeBesoinsGlobal />}/>
+          <Route path="achat/moins_disant" element={<MoinsDisant />}/>
         </Route>
-        <Route path="details_besoin" element={<FicheBesoin />} />
       </Routes>
       </BrowserRouter>
       

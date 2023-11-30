@@ -1,12 +1,9 @@
-import { Typography } from "@mui/material";
-import { useLocation, useNavigate } from "react-router-dom";
-
+import axios from "axios";
 import "../assets/scss/besoin.scss";
+import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import ArticleBesoins from "../components/ArticleBesoin";
 import Bouton from "../components/Bouton";
-import { useState } from "react";
-import { json } from "react-router-dom";
-import axios from "axios";
 
 function DefArticleBesoin() {
     const location = useLocation();
@@ -66,26 +63,29 @@ function DefArticleBesoin() {
     }
 
     return (
-        <div className="def-articles">
-            <Typography variant="h4" className="def-articles__title">
-                Articles
-            </Typography>
+        <div className="articles_besoin">
+            <h2 className="articles_besoin__title">
+                Besoin
+            </h2>
 
-            <ArticleBesoins 
-                data={articles} 
-                className="def-articles__articles"
-                quantites={quantites}
-                inputClassName="def-articles__articles--items"
-                onQuantityChange={handleQuantityChange}
-            />
+            <div className="articles_besoin__form">
+                <ArticleBesoins
+                    data={articles} 
+                    className="articles_besoin__form--input"
+                    quantites={quantites}
+                    inputClassName="def-articles__articles--items"
+                    onQuantityChange={handleQuantityChange}
+                />
+            </div>
 
-            <div className="def-articles__submit">
-                <Bouton 
-                    text="Valider" 
-                    variant="contained"
-                    className="def-articles__submit--button"
+            <div className="articles_besoin__submit">
+                <Bouton
+                    variant="outlined"
+                    color="primary"
+                    text="Ajouter"
+                    className="articles_besoin__submit--button"
                     onClick={setArticles}
-                /> 
+                />
             </div>
         </div>
     )

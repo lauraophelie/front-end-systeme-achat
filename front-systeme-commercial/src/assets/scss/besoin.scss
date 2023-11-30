@@ -1,104 +1,303 @@
-.def-besoin {
-    margin-top: -35%;
-
+.liste-besoins {
     &__title {
-        color: rgb(14, 14, 14);
-        font-weight: lighter;
-        margin-top: -15%;
         font-size: 35px;
+        padding-left: 5%;
+        padding-top: 25px;
     }
 
-    &__form {
-        margin-top: 25px;
+    &__header {
+        margin-top: 50px;
+        width: 90%;
+        margin-left: 5%;
+        height: 45px;
+        display: flex;
+        font-size: 17px;
+        color: rgb(89, 89, 89);
 
-        &--input {
-            &__two {
-                margin-top: 25px;
-            }
+        &--title {
+            width: 20%;
+            padding-top: 6px;
+            text-align: center;
+        }
+    }
 
-            &__input {
-                width: 350px;
+    &__content {
+        margin-top: 15px;
+        width: 90%;
+        margin-left: 5%;
+
+        &--infos {
+            height: 85px;
+            display: flex;
+            background-color: white;
+            margin-top: 25px;
+            box-shadow: 7px 7px 11px 0px #f2f2f2eb;
+            transition: 0.3s ease-in-out;
+
+            &__element {
+                width: 20%;
+                padding-top: 25px;
+                text-align: center;
             }
         }
 
-        &--articles {
-            margin-top: 25px;
-        }
-
-        &--submit-besoin {
-            margin-top: 25px;
-
-            &__button {
-                height: 50px;
-                width: 200px;
-            }
+        &--infos:hover {
+            transform: scale(1.05);
         }
     }
 }
 
-#date_input {
-    margin-left: 25px;
+.fiche-besoin {
+    &__title {
+        font-size: 35px;
+        padding-left: 5%;
+        padding-top: 25px;
+    }
 }
 
-.def-articles {
-    &__title {
-        color: rgb(29, 29, 29);
-        font-size: 35px;
+.details-besoin {
+    width: 90%;
+    margin-left: 5%;
+    background-color: white;
+    box-shadow: 7px 7px 11px 0px #f2f2f2eb;
+
+    &__infos {
+        height: 100px;
+        display: flex;
+        border-bottom: 2px solid rgb(242, 242, 242);
+
+        &__element {
+            padding-top: 45px;
+            width: 30%;
+            text-align: center;
+        }
     }
 
     &__articles {
-        margin-top: 35px;
-        width: 500px;
-        margin-left: 15%;
+        margin-top: 55px;
 
-        &--items {
+        &--header {
+            height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            display: flex;
+            border-bottom: 2px solid rgb(242, 242, 242);
+
+            &__element {
+                width: 30%;
+            }
+        }
+
+        &--content {
+            display: flex;
+            text-align: center;
+            height: 75px;
+            border-bottom: 2px solid rgb(242, 242, 242);
+            transition: 0.2s ease-in-out;
+
+            &__element {
+                width: 30%;
+                padding-top: 20px;
+            }
+        }
+        &--content:hover {
+            background-color: rgb(245, 245, 245);
+        }
+    }
+
+    &__buttons {
+        height: 75px;
+        margin-top: 25px;
+        display: flex;
+        text-align: center;
+
+        &__element {
+            width: 50%;
+
+            &--button {
+                width: 250px;
+                height: 45px;
+            }
+        }
+    }
+}
+
+.ajout-besoin {
+    &__title {
+        font-size: 35px;
+        padding-left: 5%;
+        padding-top: 25px;
+    }
+
+    &__form {
+        width: 65%;
+        margin-left: 5%;
+        background-color: white;
+        box-shadow: 7px 7px 11px 0px #f2f2f2eb;
+
+        &__title {
+            width: 65%;
+            height: 75px;
+            margin-left: 5%;
+            color: rgb(68, 68, 68);
+        }
+
+        &--element {
+            padding-top: 50px;
+        }
+
+        &__content {
+            width: 65%;
+            height: 350px;
+            margin-left: 5%;
+            margin-top: 50px;
+
+            &--input {
+                height: 150px;
+
+                &__one {
+                    display: flex;
+                }
+
+                &__date {
+                    width: 47%;
+                    margin-top: 25px;
+
+
+
+                    &--limit {
+                        width: 42%;
+                        padding-left: 5%;
+                    }
+                }
+
+                &__select {
+                    margin-top: 50px;
+
+                    &--input {
+                        width: 82%;
+                    }
+                }
+
+                &__submit {
+                    display: flex;
+                    text-align: center;
+                    margin-top: 50px;
+                    height: 65px;
+                    width: 82%;
+
+                    &__element {
+                        width: 50%;
+                        padding-top: 15px;
+                    }
+
+                    &--button {
+                        width: 175px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.articles_besoin {
+    &__title {
+        font-size: 35px;
+        padding-left: 5%;
+        padding-top: 25px;
+    }
+
+    &__form {
+        width: 65%;
+        margin-left: 5%;
+        /*background-color: white;
+        box-shadow: 7px 7px 11px 0px #f2f2f2eb;*/
+
+        &--input {
             margin-top: 25px;
         }
     }
 
     &__submit {
-        margin-top: 25px;
-        margin-left: 25px;
-
-        &--button {
-            margin-top: 25px;
-            width: 200px;
-            margin-left: 35px;
-            height: 45px;
-        }
-    }
-}
-
-.liste-besoins, .fiche-besoin {
-    &__title {
-        color: black;
-        font-size: 35px;
-        margin-top: 25px;
-    }
-
-    &__add-besoin {
-        margin-top: 25px;
+        margin-left: 37%;
+        margin-top: 45px;
+        height: 45px;
         width: 250px;
 
         &--button {
-            width: 225px;
+            height: inherit;
+            width: inherit;
+        }
+    }
+}
+
+.besoins_global {
+    &__title {
+        font-size: 35px;
+        padding-left: 5%;
+        padding-top: 25px;
+    }
+
+    &__header {
+        margin-top: 50px;
+        margin-left: 5%;
+        height: 45px;
+        display: flex;
+
+        &__element {
+            width: 20%;
+            text-align: center;
         }
     }
 
-    &__table {
-        margin-top: 45px;
-    }
-}
-
-.liste-besoins {
-    &__error {
+    &__content {
+        display: flex;
+        margin-left: 5%;
         margin-top: 25px;
+
+        &--element {
+            width: 20%;
+            height: 70px;
+            background-color: white;
+            box-shadow: 7px 7px 11px 0px #f2f2f2eb;
+            text-align: center;
+            padding-top: 35px;
+        }
     }
 }
 
-.besoins-global {
-    &__data {
-        margin-top: 45px;
+.bon_commande {
+    &__title {
+        font-size: 35px;
+        padding-left: 5%;
+        padding-top: 25px;
+    }
+
+    &__header {
+        margin-top: 50px;
+        margin-left: 5%;
+        height: 45px;
+        display: flex;
+
+        &--element {
+            width: 20%;
+            padding-top: 6px;
+            text-align: center;
+        }
+    }
+
+    &__content {
+        display: flex;
+        margin-left: 5%;
+        margin-top: 35px;
+
+        &--element {
+            width: 20%;
+            height: 50px;
+            background-color: white;
+            box-shadow: 7px 7px 11px 0px #f2f2f2eb;
+            text-align: center;
+            padding-top: 25px;
+        }
     }
 }
-

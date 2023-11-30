@@ -1,18 +1,10 @@
-import "../assets/scss/besoin.scss";
-import { Typography } from "@mui/material";
-import DateInput from "../components/DateInput";
-import CheckBoxesListe from "../components/CheckBoxesListe";
-import Bouton from "../components/Bouton";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import "../assets/scss/besoin.scss";
+import Bouton from "../components/Bouton";
+import CheckBoxesListe from "../components/CheckBoxesListe";
+import DateInput from "../components/DateInput";
 import axios from "axios";
-
-/*const data = [
-    { id: "ART001", title: "Stylo", quantite: 0 },
-    { id: "ART002", title: "Ordinateur", quantite: 0 },
-    { id: "ART003", title: "Crayon", quantite: 0 },
-    { id: "ART004", title: "Disque dur", quantite: 0 }
-];*/
+import { useNavigate } from "react-router-dom";
 
 function Besoin() {
     const [articles, setArticles] = useState([]);
@@ -39,13 +31,7 @@ function Besoin() {
             }
         }
         fetchArticle();
-    })
-
-    const btn = {
-        variant: "contained",
-        text: "Suivant",
-        className: "def-besoin__form--submit-besoin__button"
-    };
+    }, []);
 
     const [formValues, setFormValues] = useState({
         date: "",
@@ -99,50 +85,66 @@ function Besoin() {
     };
 
     return (
-        <>
-            <div className="def-besoin">
-                <Typography variant="h4" className="def-besoin__title">
-                    Besoins
-                </Typography>
-                
-                <div className="def-besoin__form">
-                    <div className="def-besoin__form--input__one">
-                        <DateInput 
-                            label="Date" 
-                            className="def-besoin__form--input__input"
-                            onChange={(value) => handleChange("date", value)} 
-                        />
-                    </div>
+        <div className="ajout-besoin">
+            <h2 className="ajout-besoin__title">
+                Besoin
+            </h2>
 
-                    <div className="def-besoin__form--input__two">
+            <div className="ajout-besoin__form">
+                <div className="ajout-besoin__form__title">
+                    <h3 className="ajout-besoin__form--element">
+                        Définir un besoin
+                    </h3>
+                </div>
+                <div className="ajout-besoin__form__content">
+                    <div className="ajout-besoin__form__content--input__one">
                         <DateInput 
-                            label="Date limite" 
-                            className="def-besoin__form--input__input"
+                            label="Date besoin"
+                            className="ajout-besoin__form__content--input__date--def"
+                            onChange={(value) => handleChange("date", value)}
+                        />
+                        <DateInput 
+                            label="Date Limite"
+                            className="ajout-besoin__form__content--input__date--limit"
                             onChange={(value) => handleChange("dateLimite", value)}
                         />
                     </div>
 
-                    <div className="def-besoin__form--articles">
+                    <div className="ajout-besoin__form__content--input__select">
                         <CheckBoxesListe 
-                            data={articles} 
-                            limitTags={2} 
-                            label="Articles"
+                            data={articles}
+                            limitTags={3}
+                            placeholder="Article"
+                            label="Choisisez des articles"
+                            className="ajout-besoin__form__content--input__select--input"
                             onChange={(selectedItems) => handleChange("articles", selectedItems)}
                         />
                     </div>
 
-                    <div className="def-besoin__form--submit-besoin">
-                        <Bouton
-                            variant={btn.variant}
-                            text={btn.text}
-                            className={btn.className}
-                            onClick={createBesoin}
-                        />
+                    <div className="ajout-besoin__form__content--input__submit">
+                        <div className="ajout-besoin__form__content--input__submit__element">
+                            <Bouton
+                                text="Retour"
+                                variant="outlined"
+                                color="secondary"
+                                className="ajout-besoin__form__content--input__submit--button"
+                                onClick={() => navigate("/header/liste_besoins")}
+                            />
+                        </div>
+                        <div className="ajout-besoin__form__content--input__submit__element">
+                            <Bouton
+                                text="Suivant"
+                                variant="outlined"
+                                color="primary"
+                                className="ajout-besoin__form__content--input__submit--button"
+                                onClick={createBesoin}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </>
-    );
+        </div>
+    )
 }
 
 export default Besoin;

@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { CheckBox, CheckBoxOutlineBlank } from "@mui/icons-material";
 import { Autocomplete, Checkbox, TextField } from "@mui/material";
 
@@ -40,3 +41,4 @@ function CheckBoxesListe(props) {
 }
 
 export default CheckBoxesListe;
+

@@ -1,47 +1,68 @@
-.proforma {
+.saisie_proforma {
+
     &__title {
-        margin-top: -5%;
+        font-size: 35px;
+        padding-left: 5%;
+        padding-top: 25px;
     }
 
-    &__input {
-        height: 75px;
-        margin-top: 45px;
+    &__form {
+        display: flex;
+        margin-left: 5%;
 
-        &__one, &__two {
-            display: flex;
-        }
+        &__element {
+            width: 25%;
 
-        &__one {
-            margin-top: 35px;
-        }
-        &__two {
-            margin-top: 25px;
-        }
-    }
+            &--select {
+                width: 95%;
+            }
 
-    &__add {
-        height: 55px;
+            &--date {
+                width: 100%;
+            }
+        }
     }
 
     &__content {
-        border: 1px solid lightgray;
-        height: fit-content;
         display: flex;
-        margin-top: 25px;
-        height: 65px;
+        margin-left: 5%;
+        margin-top: 50px;
 
-        &__box {
+        &__element {
             width: 25%;
-            font-weight: lighter;
+
+            &--select {
+                width: 95%;
+            }
+
+            &--input {
+                width: 95%;
+            }
+
+            &--button {
+                height: 55px;
+            }
+        }
+    }
+
+    &__data {
+        display: flex;
+        margin-left: 5%;
+        margin-top: 50px;
+        height: 75px;
+        border: 1px solid lightgray;
+        width: 70%;
+
+        &__element {
+            text-align: center;
+            padding-top: 25px;
+            height: 100%;
+            width: 65%;
         }
     }
 
     &__submit {
         margin-top: 50px;
-
-        &--button {
-            width: 275px;
-            height: 45px;
-        }
+        margin-left: 5%;
     }
 }
