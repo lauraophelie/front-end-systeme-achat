@@ -1,0 +1,207 @@
+.bon_commande {
+    &__title {
+        font-size: 35px;
+        padding-left: 5%;
+        padding-top: 25px;
+    }
+
+    &__header {
+        margin-top: 50px;
+        margin-left: 5%;
+        height: 45px;
+        display: flex;
+
+        &--element {
+            width: 17%;
+            padding-top: 6px;
+            text-align: center;
+        }
+    }
+
+    &__content {
+        display: flex;
+        margin-left: 5%;
+        margin-top: 35px;
+        transition: 0.5s ease-in-out;
+        height: 85px;
+
+        &--element {
+            width: 17%;
+            background-color: white;
+            box-shadow: 7px 7px 11px 0px #f2f2f2eb;
+            text-align: center;
+            padding-top: 25px;
+        }
+    }
+
+    &__content:hover {
+        transform: scale(1.05);
+    }
+}
+
+.fiche_bon_commande {
+    width: 90%;
+
+    &__title {
+        font-size: 35px;
+        padding-left: 5%;
+        padding-top: 25px;
+    }
+
+    &__content {
+        margin-left: 5%;
+        margin-top: 35px;
+    }
+}
+
+.details_bon_commande {
+    width: 100%;
+
+    &__infos {
+        height: 300px;
+        font-size: 17px;
+
+        &__element {
+            width: 50%;
+            text-align: left;
+            padding-top: 15px;
+            padding-left: 25px;
+        }
+    }
+
+    &__articles {
+        margin-top: 25px;
+
+        &--header {
+            border: none;
+        }
+
+        &--header {
+            display: flex;
+            height: 75px;
+            background-color: rgb(29, 29, 93);
+            color: whitesmoke;
+            font-size: 17px;
+        }
+
+        &--content {
+            display: flex;
+            height: 75px;
+            border: 1px solid rgb(237, 237, 237);
+            transition: 0.5s ease-in-out;
+            color: rgb(59, 59, 59);
+            font-size: 15px;
+        }
+
+        &__element {
+            width: 20%;
+            text-align: center;
+            padding-top: 25px;
+            transition: 0.5s ease-in-out;
+        }
+        &--content:hover {
+            background-color: rgb(240, 240, 240);
+        }
+    }
+
+    &__signature {
+        height: 250px;
+        width: 100%;
+        margin-top: 50px;
+
+        &__arret {
+            height: 25%;
+            width: 100%;
+
+            &--content {
+                text-align: center;
+                padding-top: 15px;
+            }
+        }
+
+        &__sign {
+            display: flex;
+
+            &__element {
+                width: 50%;
+                text-align: center;
+                padding-top: 35px;
+            }
+        }
+    }
+}
+
+.saisie_bon_commande {
+    width: 90%;
+
+    &__title {
+        font-size: 35px;
+        padding-left: 5%;
+        padding-top: 25px;
+    }
+
+    &__form {
+        margin-top: 45px;
+        margin-left: 5%;
+        width: 90%;
+
+        &__infos {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+
+            &--element {
+                width: 20%;
+            }
+        }
+
+        &__livraison {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            margin-top: 50px;
+        }
+
+        &__articles {
+            display: flex;
+            justify-content: space-evenly;
+            flex-direction: row;
+            margin-top: 50px;
+
+            &--element {
+                width: 20%;
+            }
+
+            &--add {
+                height: 100%;
+                width: 75%;
+            }
+        }
+
+        &__content {
+            border: 1px solid lightgray;
+            width: 100%;
+            margin-top: 45px;
+            height: 75px;
+            display: flex;
+
+            &--element {
+                width: 25%;
+                text-align: center;
+                padding-top: 22px;
+                color: rgb(86, 86, 86);
+            }
+        }
+    }
+
+    &__submit {
+        margin-top: 50px;
+        display: flex;
+        margin-left: 69%;
+
+        &--add {
+            width: 250px;
+            height: 50px;
+        }
+    }
+}

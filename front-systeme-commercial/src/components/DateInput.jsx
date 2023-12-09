@@ -7,8 +7,14 @@ function DateInput(props) {
 
     return (
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker label={label} className={className} onChange={onChange} 
-                id={id} format="DD-MM-YYYY" value={value} name={name}
+            <DatePicker 
+                label={label} 
+                className={className} 
+                onChange={onChange} 
+                id={id} 
+                format="DD-MM-YYYY" 
+                value={value} 
+                name={name}
             />
         </LocalizationProvider>
     )

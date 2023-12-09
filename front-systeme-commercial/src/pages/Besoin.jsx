@@ -37,7 +37,7 @@ function Besoin() {
         date: "",
         dateLimite: "",
         articles: []
-    })
+    });
 
     const handleChange = (name, value) => {
         console.log(`Setting ${name} to:`, value);

@@ -3,7 +3,7 @@ import { TextField } from "@mui/material";
 
 function TextInput(props) {
 
-    const { type, label, id, className, name, required, onChange, value } = props;
+    const { type, label, id, className, name, required, onChange, value, defaultValue } = props;
 
     return (
         <TextField 
@@ -11,6 +11,7 @@ function TextInput(props) {
             className={className} name={name} 
             required={required} onChange={onChange} 
             value={value}
+            defaultValue={defaultValue}
         />
     )
 }

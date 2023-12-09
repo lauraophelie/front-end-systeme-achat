@@ -15,6 +15,11 @@ import ListeBesoinsGlobal from './pages/ListeBesoinsGlobal';
 import SaisieProforma from './pages/achat/SaisieProforma';
 import MoinsDisant from './pages/achat/MoinsDisant';
 import GenerateBonCommande from './pages/achat/GenerateBonCommande';
+import FicheBonCommande from './pages/achat/FicheBonCommande';
+import PDFView from './pdf/PDFView';
+import BonCommande from './pages/achat/BonCommande';
+import BonReception from './pages/achat/BonReception';
+import ArticlesBonReception from './pages/achat/ArticlesBonReception';
 
 function App({ children }) {
 
@@ -33,6 +38,12 @@ function App({ children }) {
           <Route path="achat/saisie_proforma" element={<SaisieProforma />}/>
           <Route path="achat/besoins_global" element={<ListeBesoinsGlobal />}/>
           <Route path="achat/moins_disant" element={<MoinsDisant />}/>
+          <Route path="achat/details_bon_commande" element={<FicheBonCommande />} />
+          <Route path="achat/generate_bon_commande" element={<BonCommande />} />
+          <Route path="achat/generate_bon_reception" element={<BonReception />} />
+          <Route path="achat/articles_bon_reception" element={<ArticlesBonReception />} />
+
+          <Route path="pdf" element={<PDFView />} />
         </Route>
       </Routes>
       </BrowserRouter>

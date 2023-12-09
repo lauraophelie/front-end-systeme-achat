@@ -1,7 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import "../../assets/scss/besoin.scss";
+import "../../assets/scss/bon_commande.scss";
 import Bouton from "../../components/Bouton";
+import ChipComponent from "../../components/ChipComponent";
+import { useNavigate } from "react-router-dom";
+import { Download } from "@mui/icons-material";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import PDFBonCommande from "../../pdf/PDFBonCommande";
 
 function GenerateBonCommande() {
     const [bonCommande, setBonCommande] = useState(null);
@@ -23,6 +28,8 @@ function GenerateBonCommande() {
         fetchData();
     }, []);
 
+    const navigate = useNavigate();
+
     return (
         <div className="bon_commande">
             <h2 className="bon_commande__title">
@@ -37,7 +44,10 @@ function GenerateBonCommande() {
                     Délai livraison
                 </div>
                 <div className="bon_commande__header--element">
-                    Paiement
+                    Etat
+                </div>
+                <div className="bon_commande__header--element">
+                    
                 </div>
                 <div className="bon_commande__header--element">
                     
@@ -47,20 +57,28 @@ function GenerateBonCommande() {
             {bonCommande && bonCommande.map((item) => (
                 <div key={item.id} className="bon_commande__content">
                     <div className="bon_commande__content--element">
-                        {item.numero}
+                        {item.id}
                     </div>
                     <div className="bon_commande__content--element">
                         {item.delaiLivraison}
                     </div>
                     <div className="bon_commande__content--element">
-                        {item.paiement}
+                        <ChipComponent variant="outlined" type={item.etat}/>
                     </div>
                     <div className="bon_commande__content--element">
                         <Bouton
                             variant="outlined"
                             text="Détails"
                             size="small"
+                            onClick={() => { navigate("/header/achat/details_bon_commande", { state: { id: item.id } })}}
                         />
+                    </div>
+                    <div className="bon_commande__content--element">
+                        <PDFDownloadLink document={<PDFBonCommande idBonCommande={item.id} />} fileName={"commande_" + item.id + ".pdf"}>
+                            {({loading}) => loading ? 'Loading' :
+                                <Bouton variant="outlined" text="PDF" size="small" endIcon={<Download />} />
+                            }
+                        </PDFDownloadLink>
                     </div>
                 </div>
             ))}

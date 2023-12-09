@@ -16,7 +16,7 @@ function DropDown(props) {
                 >
                     {data && data.map((item) => (
                         <MenuItem key={item.id} value={item.id}>
-                            {item.nom}
+                            {item.nom || item.designation || item.reference || item.id}
                         </MenuItem>
                     ))}
                 </Select>

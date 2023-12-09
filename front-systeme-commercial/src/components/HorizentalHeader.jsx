@@ -14,7 +14,7 @@ function HorizentalHeader() {
                 <>
                     <Link to="/header/achat/besoins_global" className="navigation__element"> Besoins global </Link>
                     <Link to="/header/achat/bons_commande" className="navigation__element"> Bons de commande </Link>
-                    <Link to="/header/achat/saisie_proforma" className="navigation__element"> Proforma </Link>
+                    <Link to="/header/achat/saisie_proforma" className="navigation__element"> Saisie de Proforma </Link>
                 </>
             )}
         </nav>

@@ -33,7 +33,7 @@ function MoinsDisant() {
                         Article
                     </div>
                     <div className="moins-disant__content--header__element">
-                        Prix unitaire
+                        Prix total
                     </div>
                     <div className="moins-disant__content--header__element">
                         Fournisseur

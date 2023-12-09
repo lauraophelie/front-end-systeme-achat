@@ -6,6 +6,7 @@ import DropDown from "../../components/DropDown";
 import axios from "axios";
 import TextInput from "../../components/TextInput";
 import Bouton from "../../components/Bouton";
+import { useNavigate } from "react-router-dom";
 
 function SaisieProforma() {
     const [fournisseurs, setFournisseurs] = useState([]);
@@ -113,6 +114,8 @@ function SaisieProforma() {
         }
     };
 
+    const navigate = useNavigate();
+
     const saisieProforma = async (e) => {
         e.preventDefault();
     
@@ -129,7 +132,8 @@ function SaisieProforma() {
         try {
             const urlRequest = "http://localhost:8080/api/proforma/new";
             const response = await axios.post(urlRequest, dataProforma);
-
+            navigate("/header/achat/saisie_proforma");
+            
             console.log(response);
         } catch (error) {
             console.error(error);

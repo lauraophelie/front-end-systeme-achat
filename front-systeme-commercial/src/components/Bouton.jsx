@@ -2,7 +2,7 @@
 import { Button } from "@mui/material";
 
 function Bouton(props) {
-    const { onClick, variant, endIcon, text, id, className, size, color } = props;
+    const { onClick, variant, endIcon, text, id, className, size, color, disabled } = props;
 
     return (
         <Button 
@@ -10,6 +10,7 @@ function Bouton(props) {
             onClick={onClick} id={id} 
             className={className} size={size}
             color={color}
+            disabled={disabled}
         >
             {text}
         </Button>
