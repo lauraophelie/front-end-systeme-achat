@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import "../../assets/scss/bon_commande.scss";
 import axios from "axios";
+import Bouton from "../../components/Bouton";
+import { useNavigate } from "react-router-dom";
 
 function DetailsBonCommande(props) {
     const { idBonCommande } = props;
@@ -30,6 +32,51 @@ function DetailsBonCommande(props) {
         fetchDetails();
     }, []);
 
+    const session = sessionStorage.getItem('userData');
+    const dataSession = JSON.parse(session);
+    const codeService = dataSession.service.codeService;
+    const idRole = dataSession.role.id;
+    console.log(codeService);
+
+    const navigate = useNavigate();
+
+    const validerBonCommande = async (etat) => {
+        try {
+            if (codeService === "FI" || idRole === "ROL6" || codeService === "DI")  {
+                var validationFinance = 0;
+                var validationDg = 0;
+
+                if(codeService == "FI") {
+                    validationFinance = etat;
+                    validationDg = 0;
+                } else {
+                    validationFinance = etat;
+                    validationDg = etat;
+                }
+                const data = {
+                    dateValidation: Date.now(),
+                    bonCommande: idBonCommande,
+                    validationFinance: validationFinance,
+                    validationDg: validationDg
+                }
+                const request = "http://localhost:8080/api/bon-commande/valider/" + idBonCommande;
+                const response = await axios.put(request, data);
+
+                if(response.data.error) {
+                    console.log(error);
+                    setError(error);
+                } else if(response.data.data) {
+                    navigate("/header/achat/bons_commande");
+                }
+                console.log(data);
+            } else {
+                alert("Vous ne pouvez pas valider ce bon de commande");
+            }
+        } catch (error) {
+            alert("Error: " + error);
+        }
+    }
+
     return (
         <div className="details_bon_commande">
             <div className="details_bon_commande__infos">
@@ -49,7 +96,7 @@ function DetailsBonCommande(props) {
                     Délai de livraison : { bonCommande && bonCommande.delaiLivraison }
                 </div>
                 <div className="details_bon_commande__infos__element">
-                    Livraison partielle : 
+                    Livraison partielle : { bonCommande && bonCommande.livraisonPartielle == true ? "Oui": "Non"}
                 </div>
                 <div className="details_bon_commande__infos__element">
                     Paiement : { bonCommande && bonCommande.modePaiement.designation }
@@ -115,6 +162,27 @@ function DetailsBonCommande(props) {
                             Le fournisseur
                         </div>
                     </div>
+                </div>
+            </div>
+
+            <div className="details_bon_commande__validation">
+                <div className="details_bon_commande__validation__element">
+                    <Bouton
+                        text="Annuler"
+                        variant="outlined"
+                        className="details_bon_commande__validation__element--button"
+                        onClick={() => validerBonCommande(-10)}
+                        /*disabled={bonCommande && bonCommande.etat === 15 ? true : false}*/
+                    />
+                </div>
+                <div className="details_bon_commande__validation__element">
+                    <Bouton
+                        text="Valider"
+                        variant="contained"
+                        className="details_bon_commande__validation__element--button"
+                        onClick={() => validerBonCommande(10)}
+                        /*disabled={bonCommande && bonCommande.etat === 15 || bonCommande.etat === 10 ? true : false}*/
+                    />
                 </div>
             </div>
         </div>

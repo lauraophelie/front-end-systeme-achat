@@ -80,7 +80,7 @@ function BonReception() {
     return (
         <div className="bon_reception">
             <h2 className="bon_reception__title">
-                Générer bon de réception
+                Générer bon de réception (1)
             </h2>
 
             <div className="bon_reception__form">

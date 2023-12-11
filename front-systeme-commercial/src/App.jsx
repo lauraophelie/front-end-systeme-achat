@@ -20,6 +20,12 @@ import PDFView from './pdf/PDFView';
 import BonCommande from './pages/achat/BonCommande';
 import BonReception from './pages/achat/BonReception';
 import ArticlesBonReception from './pages/achat/ArticlesBonReception';
+import EntreeStock from './pages/magasin/EntreeStock';
+import EtatStock from './pages/magasin/EtatStock';
+import BonEntree from './pages/magasin/BonEntree';
+import ListeBonReception from './pages/achat/ListeBonReception';
+import FicheBonReception from './pages/achat/FicheBonReception';
+import FicheBonEntree from './pages/magasin/FicheBonEntree';
 
 function App({ children }) {
 
@@ -42,6 +48,13 @@ function App({ children }) {
           <Route path="achat/generate_bon_commande" element={<BonCommande />} />
           <Route path="achat/generate_bon_reception" element={<BonReception />} />
           <Route path="achat/articles_bon_reception" element={<ArticlesBonReception />} />
+          <Route path="achat/bons_reception" element={<ListeBonReception />} />
+          <Route path="achat/details_bon_reception" element={<FicheBonReception />} />
+
+          <Route path="magasin/entree_stock" element={<EntreeStock />} />
+          <Route path="magasin/etat_stock" element={<EtatStock />} />
+          <Route path="magasin/bon_entree" element={<BonEntree />} />
+          <Route path="magasin/details_bon_entree" element={<FicheBonEntree />} />
 
           <Route path="pdf" element={<PDFView />} />
         </Route>

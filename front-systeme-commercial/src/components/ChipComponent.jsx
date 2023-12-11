@@ -12,13 +12,19 @@ function ChipComponent(props) {
     if(type == 0) {
         color = "primary";
         label = "En attente";
-    } else if(type == 1) {
-        color = "success";
+    } else if(type == 1 || type == 10) {
+        color = "secondary";
         label = "Validé";
         icon = <Done />;
-    } else if(type == -1) {
+    } else if(type == -1 || type == -10) {
         color = "error";
         label = "Refusé";
+    } else if(type == 15) {
+        color = "success";
+        label = "Envoyé";
+    } else if(type == 5) {
+        color = "secondary";
+        label = "Pré-validé";
     }
 
     return (

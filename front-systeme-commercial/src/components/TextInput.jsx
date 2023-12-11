@@ -3,7 +3,7 @@ import { TextField } from "@mui/material";
 
 function TextInput(props) {
 
-    const { type, label, id, className, name, required, onChange, value, defaultValue } = props;
+    const { type, label, id, className, name, required, onChange, value, defaultValue, ariaReadonly } = props;
 
     return (
         <TextField 
@@ -12,6 +12,7 @@ function TextInput(props) {
             required={required} onChange={onChange} 
             value={value}
             defaultValue={defaultValue}
+            aria-readonly={ariaReadonly}
         />
     )
 }

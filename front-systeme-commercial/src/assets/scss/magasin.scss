@@ -1,0 +1,29 @@
+.stock {
+    &__title {
+        font-size: 35px;
+        text-align: center;
+    }
+
+    &__form {
+        width: 35%;
+        height: 550px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: 35px;
+        display: inline-grid;
+        align-content: space-evenly;
+        justify-content: space-around;
+        justify-items: center;
+
+        &__input {
+            width: 150%;
+        }
+
+        &__button {
+            height: 45px;
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,40 @@
+.bon_entree {
+    &__title {
+        font-size: 35px;
+        padding-left: 5%;
+        padding-top: 25px;
+    }
+
+    &__header {
+        margin-top: 50px;
+        margin-left: 5%;
+        height: 45px;
+        display: flex;
+
+        &--element {
+            width: 17%;
+            padding-top: 6px;
+            text-align: center;
+        }
+    }
+
+    &__content {
+        display: flex;
+        margin-left: 5%;
+        margin-top: 35px;
+        transition: 0.5s ease-in-out;
+        height: 85px;
+
+        &--element {
+            width: 17%;
+            background-color: white;
+            box-shadow: 7px 7px 11px 0px #f2f2f2eb;
+            text-align: center;
+            padding-top: 25px;
+        }
+    }
+
+    &__content:hover {
+        transform: scale(1.05);
+    }
+}

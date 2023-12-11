@@ -31,7 +31,20 @@ function Login() {
                 setError(response.data.error)
             } else if(response.data.data) {
                 sessionStorage.setItem('userData', JSON.stringify(response.data.data));
-                navigate('/header/liste_besoins');
+
+                const session = sessionStorage.getItem('userData');
+                const dataSession = JSON.parse(session);
+                const codeService = dataSession.service.codeService;
+
+                var urlNavigation = null;
+                const baseUrl = "/header/"
+
+                if(codeService === "SA") urlNavigation = baseUrl + "achat/besoins_global";
+                else if(codeService === "FI" || codeService == "DI") urlNavigation = baseUrl + "achat/bons_commande";
+                else if(codeService === "MA") urlNavigation = baseUrl + "magasin/bon_entree";
+                else urlNavigation = baseUrl + "liste_besoins";
+
+                navigate(urlNavigation);
             }
         } catch(error) {
             console.error(error);
