@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "../../assets/scss/magasin.scss"
+import "../../assets/scss/magasin.scss";
 import Bouton from "../../components/Bouton";
 import DateInput from "../../components/DateInput";
 import DropDown from "../../components/DropDown";

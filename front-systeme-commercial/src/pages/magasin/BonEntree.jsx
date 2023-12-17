@@ -29,6 +29,50 @@ function BonEntree() {
 
     const navigate = useNavigate();
 
+    const genererEntree = async (idBonEntree) => {
+        console.log(idBonEntree);
+        const request = "http://localhost:8080/api/magasin/bon_entree/" + idBonEntree;
+
+        try {
+            const response = await axios.get(request);
+
+            if(response.data.error) {
+                console.log(response.data.error);
+            } else if(response.data.data) {
+                const bon = response.data.data;
+                const articles = bon.detailsBonEntree;
+
+                const idArticle = articles.map(function(item) {
+                    return item.article.id;
+                });
+                
+                const qteEntree = articles.map(function(item) {
+                    return item.quantite;
+                });
+
+                const prix = articles.map(function(item) {
+                    return item.prixAchat;
+                });
+
+                const data = {
+                    dateEntree: Date.now(),
+                    idArticle: idArticle,
+                    qteEntree: qteEntree,
+                    prix: prix
+                }
+                const send = await axios.post("http://localhost:8080/api/entree/new", data);
+
+                if(send.data.error) {
+                    alert(send.data.error);
+                } else {
+                    alert("ok");
+                }
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }   
+
     return (
         <div className="bon_entree">
             <h2 className="bon_entree__title">
@@ -73,7 +117,12 @@ function BonEntree() {
                         />
                     </div>
                     <div className="bon_entree__content--element">
-
+                        <Bouton
+                            variant="contained"
+                            text="Générer entrées"
+                            size="small"
+                            onClick={() => genererEntree(item.id)}
+                        />
                     </div>
                 </div>
             ))}
