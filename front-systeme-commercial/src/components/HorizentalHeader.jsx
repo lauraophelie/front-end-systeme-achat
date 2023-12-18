@@ -33,6 +33,7 @@ function HorizentalHeader() {
                         <Link to={magasin + "entree_stock"} className="navigation__element"> Entrée </Link>
                         <Link to={magasin + "etat_stock"} className="navigation__element"> Etat de stocks </Link>
                         <Link to={magasin + "sortie_stock"} className="navigation__element"> Sortie </Link>
+                        <Link to={magasin + "bon_sortie"} className="navigation__element"> Bons de sorties </Link>
                     </>
                 )}
             </nav>

@@ -70,7 +70,7 @@ function SortieStock() {
 
         console.log(JSON.stringify(dataSortie));
         
-        /*try {
+        try {
             const url = "http://localhost:8080/api/sortie/new";
             const response = await axios.post(url, dataSortie);
 
@@ -81,7 +81,7 @@ function SortieStock() {
             }
         } catch (error) {
             alert(error)
-        }*/
+        }
     }
 
     return (

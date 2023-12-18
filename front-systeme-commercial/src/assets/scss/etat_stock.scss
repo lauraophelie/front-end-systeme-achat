@@ -1,0 +1,52 @@
+.etat_stock {
+    &__title {
+        font-size: 35px;
+        padding-left: 5%;
+        padding-top: 25px;
+    }
+
+    &__form {
+        margin-top: 50px;
+        margin-left: 5%;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+
+        &__element {
+            width: 25%;
+        }
+        
+        &__input {
+            width: 350px;
+        }
+
+        &__button {
+            height: 56px;
+            width: 100px;
+        }
+    }
+
+    &__content {
+        margin-top: 50px;
+        margin-left: 5%;
+
+        &__header {
+            margin-top: 50px;
+            margin-left: 5%;
+            height: 45px;
+            display: flex;
+        }
+
+        &__element {
+            width: 17%;
+            padding-top: 6px;
+            text-align: center;
+        }
+
+        &__etat {
+            margin-left: 5%;
+            height: 45px;
+            display: flex;
+        }
+    }
+}

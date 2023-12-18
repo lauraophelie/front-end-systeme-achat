@@ -27,6 +27,10 @@ import ListeBonReception from './pages/achat/ListeBonReception';
 import FicheBonReception from './pages/achat/FicheBonReception';
 import FicheBonEntree from './pages/magasin/FicheBonEntree';
 import SortieStock from './pages/magasin/SortieStock';
+import BonSortie from './pages/magasin/BonSortie';
+import ListeSortie from './pages/magasin/ListeSortie';
+import GenerateBonSortie from './pages/magasin/GenerateBonSortie';
+import FicheBonSortie from './pages/magasin/FicheBonSortie';
 
 function App({ children }) {
 
@@ -57,6 +61,10 @@ function App({ children }) {
           <Route path="magasin/bon_entree" element={<BonEntree />} />
           <Route path="magasin/details_bon_entree" element={<FicheBonEntree />} />
           <Route path="magasin/sortie_stock" element={<SortieStock />} />
+          <Route path="magasin/bon_sortie" element={<BonSortie />} />
+          <Route path="magasin/liste_sortie" element={<ListeSortie />} />
+          <Route path="magasin/generer_bon_sortie" element={<GenerateBonSortie />} />
+          <Route path="magasin/details_bon_sortie" element={<FicheBonSortie />} />
 
           <Route path="pdf" element={<PDFView />} />
         </Route>

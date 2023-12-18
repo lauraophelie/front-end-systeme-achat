@@ -22,7 +22,7 @@
         display: flex;
         margin-left: 5%;
         margin-top: 35px;
-        transition: 0.5s ease-in-out;
+        transition: 0.3s ease-in-out;
         height: 85px;
 
         &--element {
@@ -36,5 +36,14 @@
 
     &__content:hover {
         transform: scale(1.05);
+    }
+}
+
+.bon_sortie__submit {
+    margin-top: 50px;
+    margin-left: 55%;
+
+    &--button {
+        height: 50px;
     }
 }
